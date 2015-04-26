@@ -5,4 +5,4 @@
 This is a test controller, we are going to find out how this thing work.
 </p>
 
-{{ user.name }} 
+<!-- {{ user.name }} -->

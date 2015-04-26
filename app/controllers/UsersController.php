@@ -36,40 +36,51 @@ class UsersController extends \Phalcon\Mvc\Controller
     		$user->save();
                     
     		return $this->dispatcher->forward(array(
-			'controller' => '',
+			'controller' => 'user',
     			'action' => 'login'
     		));
     	}
     }
-    
-    public function loginAction(){
-        if ($this->request->isPost()) {
-            
-            $username = $this->request->getPost('username');
-            $password = $this->request->getPost('password');
 
+    public function loginAction()
+    {
+        if ($this->request->isPost()) {
             $user = Users::findFirst(array(
-                "username = :username: AND password = :password: AND active = 'Y'",
-                'bind' => array('username' => $username, 'password' => $password)
+                'login = :login: and password = :password:',
+                'bind' => array(
+                    'login' => $this->request->getPost("login"),
+                    'password' => sha1($this->request->getPost("password"))
+                )
             ));
-            if ($user != false) {
-                $this->_registerSession($user);
-                $this->view->flash->success('Welcome ' . $user->name);
+            if ($user === false){
+                $this->flash->error("Incorrect credentials");
                 return $this->dispatcher->forward(array(
-                    'controller' => '',
-                        'action' => ''
+                    'controller' => 'users',
+                    'action' => 'index'
                 ));
             }
-
-            $this->flash->error('Wrong email/password');
+            $this->session->set('auth', $user->id);
+            $this->flash->success("You've been successfully logged in");
         }
-        
+        return $this->dispatcher->forward(array(
+            'controller' => 'posts',
+            'action' => 'index'
+        ));
+    }
+    public function logoutAction()
+    {
+        $this->session->remove('auth');
+        return $this->dispatcher->forward(array(
+            'controller' => 'posts',
+            'action' => 'index'
+        ));
     }
 
     public function successAction()
     {
         echo 'hi there!';
     }
+
 
 }
 

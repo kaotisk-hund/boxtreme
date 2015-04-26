@@ -1,7 +1,13 @@
 <?php
 
-class TorrentsController extends \Phalcon\Mvc\Controller
+class TorrentsController extends ControllerBase
 {
+
+    public function initialize()
+    {
+        $this->tag->setTitle(' :: Torrents');
+        parent::initialize();
+    }
 
     public function indexAction()
     {
@@ -17,6 +23,7 @@ class TorrentsController extends \Phalcon\Mvc\Controller
     		$torrent->description = $this->request->getPost('description');
     		$torrent->link = $this->request->getPost('link');
     		$torrent->save();
+
 
     		return $this->dispatcher->forward(array(
 			'controller' => 'torrents',

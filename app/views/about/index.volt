@@ -13,3 +13,10 @@ This project is made in progress of BoxTreme Pure Code. It is the next step into
 <li>2015: While BoxTreme CMS is not yet complete, I decided to work with the Phalcon Framework. So, here we are... Wish me luck! :) </li>
 </ul>
 </p>
+<h3>Other info</h3>
+<p>You can browse this project through GitHub
+{{ link_to('https://github.com/kaotisk-hund/boxtreme' , 'in this repository') }}
+</p>
+
+
+

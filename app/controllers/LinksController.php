@@ -1,12 +1,20 @@
 <?php
 
-class LinksController extends \Phalcon\Mvc\Controller
+class LinksController extends ControllerBase
 {
+
+    public function initialize()
+    {
+        $this->tag->appendTitle(' :: Links');
+        parent::initialize();
+
+    }
 
     public function indexAction()
     {
-	$this->view->links = Links::find();
+
     }
+
 
 }
 
