@@ -1,12 +1,23 @@
-<div class="sidebar">
+<div id="widget">
     {{ elements.getLinks() }}
     {{ partial('links/index') }}
 </div>
 
 
-<div class="sidebar">
+<div id="widget">
     {{ elements.getCategories() }}
     {{ partial('categories/index') }}
+</div>
+
+<div id="widget">
+    <h1>Random number</h1>
+    <p><?php
+            $numbers = range(1, 54);
+            shuffle($numbers);
+            foreach ($numbers as $number) {
+                echo "$number ";
+            } ?>
+    </p>
 </div>
 
 

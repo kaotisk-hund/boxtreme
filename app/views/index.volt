@@ -26,19 +26,25 @@
         <!-- Main content -->
         <div id="container" class="row">
             <!--    Body-->
-            <div id="content" class="small-8 large-8 columns">
-                {{ content() }}
+            <div id="main" class="small-8 medium-8 large-8 columns">
+                <div id="content">
+                    {{ content() }}
+                </div>
             </div>
             <!--    Side bar -->
-            <div id="sidebar" class="small-4 large-4 columns">
+            <div id="sidebar" class="small-4 medium-4 large-4 columns">
                 {{ partial('sidebar/index') }}
             </div>
         </div>
 
-        <!-- Footer -->
-        <?php //include 'gui/footer.php'; ?>
+
+
 
         </div>
+       <!-- Footer -->
+
+            {{ partial('footer/index') }}
+
 
 
 

@@ -22,7 +22,7 @@ class PostsController extends ControllerBase
             $post->user_id = 1;     // Default to first user
             $post->category_id = 1; // Default to 'general'
             $post->title = $this->request->getPost('title');
-            $post->content = $this->request->getPost('content');
+            $post->content = $this->request->getPost('post-content');
             $post->public = $this->request->getPost('public');
             $post->date = date('Y-m-d');
             $post->save();
@@ -32,6 +32,7 @@ class PostsController extends ControllerBase
                 'action' => 'view'
             ));
         }
+
 	}
 
     public function viewAction($id)
