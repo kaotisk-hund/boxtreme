@@ -33,9 +33,12 @@
 
 
             <!-- Posts -->
-            <li>{{ link_to('posts','Posts') }}
-                <!-- Utilities -->
+            <li class="has-dropdown">{{ link_to('posts','Posts') }}
+                <ul class="dropdown">
+                    <li>{{ link_to('posts/add', 'New post') }}</li>
+                </ul>
             </li>
+            <!-- Utilities -->
             <li class="has-dropdown"><a>Utilities</a>
                 <ul class="dropdown"><li>{{ link_to('apply','Apply') }}</li></ul>
             </li>
