@@ -36,7 +36,7 @@ class UsersController extends \Phalcon\Mvc\Controller
     		$user->save();
                     
     		return $this->dispatcher->forward(array(
-			'controller' => 'user',
+			'controller' => 'users',
     			'action' => 'login'
     		));
     	}
@@ -46,9 +46,9 @@ class UsersController extends \Phalcon\Mvc\Controller
     {
         if ($this->request->isPost()) {
             $user = Users::findFirst(array(
-                'login = :login: and password = :password:',
+                'username = :username: and password = :password:',
                 'bind' => array(
-                    'login' => $this->request->getPost("login"),
+                    'username' => $this->request->getPost("username"),
                     'password' => sha1($this->request->getPost("password"))
                 )
             ));
@@ -62,10 +62,7 @@ class UsersController extends \Phalcon\Mvc\Controller
             $this->session->set('auth', $user->id);
             $this->flash->success("You've been successfully logged in");
         }
-        return $this->dispatcher->forward(array(
-            'controller' => 'posts',
-            'action' => 'index'
-        ));
+
     }
     public function logoutAction()
     {
