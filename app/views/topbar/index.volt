@@ -24,10 +24,10 @@
             <li>{{ link_to('categories', 'Categories') }}</li>
 
             <!-- Torrents -->
-            <li class="has-dropdown">{{ link_to('torrents','Torrents')}}
+            <li class="has-dropdown">{{ link_to('torrents','Torrents <i class="step fi-download"></i>')}}
                 <ul class="dropdown">
                     <li>{{ link_to('torrents/browse','Browse')}}</li>
-                    <li>{{ link_to('torrents/add','Add')}}</li>
+                    <li>{{ link_to('torrents/add','<i class="step fi-plus"></i> Add')}}</li>
                 </ul>
             </li>
 
@@ -35,7 +35,7 @@
             <!-- Posts -->
             <li class="has-dropdown">{{ link_to('posts','Posts') }}
                 <ul class="dropdown">
-                    <li>{{ link_to('posts/add', 'New post') }}</li>
+                    <li>{{ link_to('posts/add', '<i class="step fi-page-add"></i> New post') }}</li>
                 </ul>
             </li>
             <!-- Utilities -->
