@@ -20,14 +20,14 @@
     </head>
     <body>
        <div id="body">
-        
-        {{ partial('topbar/index') }}
+            {{ elements.getSiteName() }}
+            {{ partial('topbar/index') }}
 
-        <!-- Main content -->
-        <div id="container" class="row">
-            <!--    Body-->
-            <div id="main" class="small-8 medium-8 large-8 columns">
-                <div id="content">
+           <!-- Main content -->
+           <div id="container" class="row">
+           <!--    Body-->
+           <div id="main" class="small-8 medium-8 large-8 columns">
+            <div id="content">
                     {{ content() }}
                 </div>
             </div>

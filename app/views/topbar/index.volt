@@ -1,4 +1,4 @@
-{{ elements.getSiteName() }}
+
 <!-- Top bar -->
 <nav class="top-bar" data-topbar>
     <ul class="title-area">
